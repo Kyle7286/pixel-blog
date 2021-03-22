@@ -1,2 +1,11 @@
 <!-- Loop over each object in the projects array -->
-<h1>This is the homepage!</h1>
+
+
+
+{{#each blogs as |blog| }}
+<div>
+    <h1>{{blog.title}}</h1>
+    <p>{{blog.content}}</p>
+    <p>{{blog.user.name}}</p>
+</div>
+{{/each}}
