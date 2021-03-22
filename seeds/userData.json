@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Brandon",
+        "email": "brandon@teampixels.com",
+        "password": "password12345"
+    },
+    {
+        "name": "Katie",
+        "email": "katie@yourhealth.com",
+        "password": "password12345"
+    },
+    {
+        "name": "Adam",
+        "email": "adam@teampixels.com",
+        "password": "password12345"
+    },
+    {
+        "name": "Olivia",
+        "email": "olivia@gmail.com",
+        "password": "password12345"
+    }
+]

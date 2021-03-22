@@ -1,0 +1,57 @@
+[
+    {
+        "user_id": 1,
+        "blog_title": "Pixel Tech - Update #1",
+        "blog_content": "Today in this blog, we will be going over the latest Pixel Tech news."
+    },
+    {
+        "user_id": 2,
+        "blog_title": "Learn how to Meditate during your JS Bootcamp",
+        "blog_content": "Because we all know how mentally taxing a bootcamp can be at times..."
+    },
+    {
+        "user_id": 1,
+        "blog_title": "Pixel Tech - Update #2",
+        "blog_content": "Because we all know how mentally taxing a bootcamp can be at times..."
+    },
+    {
+        "user_id": 3,
+        "blog_title": "Latest RPG News - Valheim",
+        "blog_content": "Valheim is taking over as the adultier version of Minecraft with it's popularity soaring..."
+    },
+    {
+        "user_id": 3,
+        "blog_title": "What's going on with MMOs?",
+        "blog_content": "Have you ever noticed the seemingly non-existent MMO trends these days?"
+    },
+    {
+        "user_id": 1,
+        "blog_title": "Pixel Tech - Update #3",
+        "blog_content": "Learn how to create a blog site in this easy 3-step program..."
+    },
+    {
+        "user_id": 2,
+        "blog_title": "Zoom Fatigue",
+        "blog_content": "If you are new to working from home, you'll probably discovered by now that the constant demands for you to be present on zoom calls comes at a price to your well-being..."
+    },
+    {
+        "user_id": 2,
+        "blog_title": "How can CBD help you write code?",
+        "blog_content": "Ever been flustered with the high-complexity of building a website? Perhaps your mind is on overdrive and are unable to slow down..."
+    },
+    {
+        "user_id": 1,
+        "blog_title": "Pixel Tech - Update #4",
+        "blog_content": "Have computer scientists discovered the secrets about blackhole? How do they relate to your recursive functions?"
+    },
+    {
+        "user_id": 4,
+        "blog_title": "Hi - I'm New!",
+        "blog_content": "Hello everyone! This is my first blog on this site and wanted to let you know who I am and what types of posts you can expect from me."
+    },
+    {
+        "user_id": 2,
+        "blog_title": "ASMR for Programmers",
+        "blog_content": "Have you ever been in a virtual haircut while writing code? Doctors believe that ASMR has huge benefits to certain individuals and their ability to relax the mind and help write better code!"
+    }
+]
