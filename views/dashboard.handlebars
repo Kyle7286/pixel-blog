@@ -1,0 +1,7 @@
+<h1>Welcome to your dashboard!</h1>
+
+{{#each dashboardData as |blog| }}
+<div blog-id="{{blog.dataValues.id}}" class="div-blog">
+    <h1>{{blog.dataValues.title}}</h1>
+</div>
+{{/each}}

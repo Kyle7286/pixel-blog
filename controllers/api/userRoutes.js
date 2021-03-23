@@ -2,19 +2,56 @@ const router = require('express').Router();
 const { User } = require('../../models');
 // const withAuth = require('../../utils/auth');
 
-//  ../api/blogs
-router.get('/', async (req, res) => {
+
+// New User
+router.post('/', async (req, res) => {
     try {
-        // Query all information
-        const userData = await User.findAll({
-            // include: [{ model: Blog }],
-        })
-        // Send data in response as JSON
-        res.status(200).json(userData);
+        const userData = await User.create(req.body);
+
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.logged_in = true;
+
+            res.status(200).json(userData);
+        });
     } catch (err) {
-        res.status(500).json(err);
+        res.status(400).json(err);
     }
 });
+
+// Handles the login request | /api/users/login
+router.post('/login', async (req, res) => {
+    try {
+        const userData = await User.findOne({ where: { email: req.body.email } });
+        if (!userData) {
+            res
+                .status(400)
+                .json({ message: 'Incorrect email or password, please try again' });
+            return;
+        }
+
+        const validPassword = await userData.checkPassword(req.body.password);
+
+        if (!validPassword) {
+            res
+                .status(400)
+                .json({ message: 'Incorrect email or password, please try again' });
+            return;
+        }
+
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.logged_in = true;
+
+            res.json({ user: userData, message: 'You are now logged in!' });
+        });
+
+    } catch (err) {
+        console.log("Hit the catch!");
+        res.status(400).json(err);
+    }
+});
+
 
 router.post('/', async (req, res) => {
     try {

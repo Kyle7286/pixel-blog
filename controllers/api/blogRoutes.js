@@ -7,12 +7,6 @@ router.get('/', async (req, res) => {
     try {
         // Query all information
         const blogData = await Blog.findAll({
-            // include: [
-            //     {
-            //         model: User,
-            //         attributes: ['name'],
-            //     },
-            // ],
             order: [
                 // Will escape title and validate DESC against a list of valid direction parameters
                 ['id', 'DESC'],
