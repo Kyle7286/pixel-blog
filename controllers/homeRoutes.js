@@ -51,11 +51,7 @@ router.get('/', async (req, res) => {
 router.get('/dashboard', withAuth, async (req, res) => {
     console.log(chalk.magenta(`User ${req.session.user_id} visted http://localhost:3001/dashboard`));
     try {
-        // If not logged in, redirect to login page
-        // if (!req.session.logged_in) {
-        //     res.redirect('/login')
-        // }
-
+        
         // Render dashboard page if all above checks pass
         const dashboardData = await Blog.findAll({
             where: {
