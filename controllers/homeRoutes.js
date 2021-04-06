@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Blog, User } = require('../models');
 const chalk = require('chalk');
 const { findAll } = require('../models/Blog');
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 // Homepage | http://localhost:3001/
 router.get('/', async (req, res) => {
@@ -20,7 +20,8 @@ router.get('/', async (req, res) => {
         const blogs = blogData.map((blog) => blog.get({ plain: true }));
         console.log(blogs);
         res.render('homepage', {
-            blogs
+            blogs,
+            logged_in: req.session.logged_in
         });
     } catch (err) {
         res.status(500).json(err);
@@ -47,13 +48,13 @@ router.get('/', async (req, res) => {
 });
 
 // Dashboard page | http://localhost:3001/dashboard
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
     console.log(chalk.magenta(`User ${req.session.user_id} visted http://localhost:3001/dashboard`));
     try {
         // If not logged in, redirect to login page
-        if (!req.session.logged_in) {
-            res.redirect('/login')
-        }
+        // if (!req.session.logged_in) {
+        //     res.redirect('/login')
+        // }
 
         // Render dashboard page if all above checks pass
         const dashboardData = await Blog.findAll({
@@ -69,7 +70,8 @@ router.get('/dashboard', async (req, res) => {
         console.log(dashboardData);
 
         res.render('dashboard', {
-            dashboardData
+            dashboardData,
+            logged_in: req.session.logged_in
         });
 
     } catch (err) {

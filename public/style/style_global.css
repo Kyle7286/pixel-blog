@@ -1,0 +1,52 @@
+
+/* Navbar Header */
+body {
+    background-color: #272727;
+}
+
+header {
+    display: inline-flex;
+}
+a {
+    text-decoration: none;
+    color: #F5F5F5;
+}
+a:hover {
+    
+    color: #DFBE57;
+}
+
+.div-blog {
+    margin: 1rem;
+    text-align: left;
+    background-color: #000000;
+}
+.div-blog .div-blog-title {
+    /* background-color: #272727; */
+    color: #DFBE57;
+    padding: 0;
+    margin: 0;
+    font-size: 40px;
+    padding-left: 10px;
+    padding-right:10px;
+    font-weight: bold;
+}
+
+.div-blog .div-blog-content {
+    background-color: #060D0F;
+    color: #F5F5F5;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right:10px;
+}
+.blog-content-author {
+    font-size: 15px;
+    font-style: italic;
+}
+
+.login-form, .signup-form {
+    color: white;
+    /* text-align: center; */
+}
+
+
