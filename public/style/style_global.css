@@ -11,6 +11,8 @@ h1, h2, h3, h4, h5, h6, p {
 header {
     display: inline-flex;
 }
+
+/* Link Styling */
 a {
     text-decoration: none;
     color: #F5F5F5;
@@ -24,6 +26,12 @@ a:hover {
     margin: 1rem;
     text-align: left;
     background-color: #000000;
+    /* border-radius: 50%;
+    border: solid; */
+}
+.div-blog:hover {
+    border: solid #DFBE57;
+    cursor: pointer
 }
 .div-blog .div-blog-title {
     /* background-color: #272727; */

@@ -1,12 +1,14 @@
 {{!-- Data is handed to this template via the homeroute --}}
 {{#each blogs as |blog| }}
-<div class="div-blog" id={{blog.id}}>
-    <div class="div-blog-title">
-        {{blog.title}}
+<a href="/blog/{{blog.id}}">
+    <div class="div-blog" id={{blog.id}}>
+        <div class="div-blog-title">
+            {{blog.title}}
+        </div>
+        <div class="div-blog-content">
+            <p>{{blog.content}}</p>
+            <span class="blog-content-author">- {{blog.user.name}} on {{blog.date_created}}</span>
+        </div>
     </div>
-    <div class="div-blog-content">
-        <p>{{blog.content}}</p>
-        <span class="blog-content-author">- {{blog.user.name}} on {{blog.date_created}}</span>
-    </div>
-</div>
+</a>
 {{/each}}

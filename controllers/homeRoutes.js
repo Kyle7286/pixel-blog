@@ -28,24 +28,29 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Homepage | http://localhost:3001/
-router.get('/', async (req, res) => {
 
-    console.log(chalk.magenta(`User ${req.session.user_id} visted http://localhost:3001/`));
-
+// Blog Post | http://localhost:3001/blog/:id
+router.get('/blog/:id', async (req, res) => {
     try {
-        // If logged in, render dashboard page
-        if (req.session.logged_in) {
-            // const dashboardData = await Blog.
-            res.redirect('/dashboard');
-        }
-
-        // Otherwise, render login page
-        res.render('login');
+        // // Get all projects and JOIN with user data
+        const blogData = await Blog.findAll({
+            where: {
+                id: req.params.id
+            }
+        });
+        
+        // Serialize data so the template can read it
+        const blogs = blogData.map((blog) => blog.get({ plain: true }));
+        console.log(blogs);
+        res.render('blog', {
+            blogs,
+            logged_in: req.session.logged_in
+        });
     } catch (err) {
         res.status(500).json(err);
     }
 });
+
 
 // Dashboard page | http://localhost:3001/dashboard
 router.get('/dashboard', withAuth, async (req, res) => {
