@@ -36,14 +36,20 @@ router.get('/blog/:id', async (req, res) => {
         const blogData = await Blog.findAll({
             where: {
                 id: req.params.id
-            }
+            },
+            include: [
+                {
+                    model: User,
+                    attributes: ['name'],
+                },
+            ],
         });
-        
+
         // Serialize data so the template can read it
-        const blogs = blogData.map((blog) => blog.get({ plain: true }));
-        console.log(blogs);
+        const blog = blogData.map((blog) => blog.get({ plain: true }));
+        console.log(blog);
         res.render('blog', {
-            blogs,
+            blog: blog[0],
             logged_in: req.session.logged_in
         });
     } catch (err) {
@@ -56,7 +62,7 @@ router.get('/blog/:id', async (req, res) => {
 router.get('/dashboard', withAuth, async (req, res) => {
     console.log(chalk.magenta(`User ${req.session.user_id} visted http://localhost:3001/dashboard`));
     try {
-        
+
         // Render dashboard page if all above checks pass
         const dashboardData = await Blog.findAll({
             where: {

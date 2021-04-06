@@ -1,7 +1,9 @@
 <h1>Welcome to your dashboard!</h1>
 
 {{#each dashboardData as |blog| }}
-<div blog-id="{{blog.dataValues.id}}" class="div-blog">
-    <div class="div-blog-title">{{blog.dataValues.title}}</div>
-</div>
+<a href="/blog/{{blog.dataValues.id}}">
+    <div blog-id="{{blog.dataValues.id}}" class="div-blog">
+        <div class="div-blog-title">{{blog.dataValues.title}}</div>
+    </div>
+</a>
 {{/each}}

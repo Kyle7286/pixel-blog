@@ -1,1 +1,12 @@
 <h1>Blog Handlebars Page</h1>
+
+
+<div class="div-blog" id={{blog.id}}>
+    <div class="div-blog-title">
+        {{blog.title}}
+    </div>
+    <div class="div-blog-content">
+        <p>{{blog.content}}</p>
+        <span class="blog-content-author">- {{blog.user.name}} on {{blog.date_created}}</span>
+    </div>
+</div>
