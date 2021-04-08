@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog, User } = require('../models');
+const { Comment, Blog, User } = require('../models');
 const chalk = require('chalk');
 const { findAll } = require('../models/Blog');
 const withAuth = require('../utils/auth');
@@ -14,6 +14,7 @@ router.get('/', async (req, res) => {
                     model: User,
                     attributes: ['name'],
                 },
+
             ],
         });
         // Serialize data so the template can read it
@@ -40,19 +41,30 @@ router.get('/blog/:id', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['name']
                 },
+                {
+                    model: Comment,
+                    include: [{ model: User, attributes: ['name'] }]
+
+                }
             ],
+
         });
 
         // Serialize data so the template can read it
         const blog = blogData.map((blog) => blog.get({ plain: true }));
-        console.log(blog);
+        console.log(blog[0]);
         res.render('blog', {
             blog: blog[0],
             logged_in: req.session.logged_in
         });
     } catch (err) {
+        console.log(` 
+        =================
+        ${err}
+        =================
+        `);
         res.status(500).json(err);
     }
 });
