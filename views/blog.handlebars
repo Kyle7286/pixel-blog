@@ -1,12 +1,26 @@
-<h1>Blog Handlebars Page</h1>
-
-
-<div class="div-blog" id={{blog.id}}>
-    <div class="div-blog-title">
-        {{blog.title}}
+<div class="container">
+    <div class="row">
+        <h1>Blog Handlebars Page</h1>
     </div>
-    <div class="div-blog-content">
-        <p>{{blog.content}}</p>
-        <span class="blog-content-author">- {{blog.user.name}} on {{blog.date_created}}</span>
+    <div class="row">
+        <div class="div-blog" id={{blog.id}}>
+            <div class="div-blog-title">
+                {{blog.title}}
+            </div>
+            <div class="div-blog-content">
+                <p>{{blog.content}}</p>
+                <footer class="blockquote-footer">{{blog.user.name}}, {{blog.date_created}}</footer>
+            </div>
+        </div>
+
+        {{#each blog.comments as |comment| }}
+        <div class="card" id={{comment.id}}>
+            <div class="card-body">
+                <p class="card-text">{{comment.content}}</p>
+                <footer class="blockquote-footer">{{comment.user.name}}, {{comment.localTime}}</footer>
+                
+            </div>
+        </div>
+        {{/each}}
     </div>
 </div>

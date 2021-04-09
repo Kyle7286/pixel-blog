@@ -23,7 +23,7 @@ a:hover {
 }
 
 .div-blog {
-    margin: 1rem;
+    margin: 1rem 1rem 0 1rem;
     text-align: left;
     background-color: #000000;
     /* border-radius: 50%;
@@ -59,6 +59,17 @@ a:hover {
 .login-form, .signup-form {
     color: white;
     /* text-align: center; */
+}
+
+/* User posts */
+.card {
+    margin: 0rem 1rem 0 2rem;
+    display: block;
+    background-color: black;
+    border-radius: 2%;
+}
+.blockquote-footer {
+    margin-bottom: 0;
 }
 
 
