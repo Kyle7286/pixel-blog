@@ -1,9 +1,25 @@
-<h1>Welcome to your dashboard!</h1>
+<div class="container">
+    <h1 class="mb-5">Welcome to your dashboard!</h1>
+    <div class="row">
 
-{{#each dashboardData as |blog| }}
-<a href="/blog/{{blog.dataValues.id}}">
-    <div blog-id="{{blog.dataValues.id}}" class="div-blog">
-        <div class="div-blog-title">{{blog.dataValues.title}}</div>
+        <div class="col-10">
+            {{#each dashboardData as |blog| }}
+            <a href="/blog/{{blog.dataValues.id}}">
+                <div blog-id="{{blog.dataValues.id}}" class="div-blog">
+                    <div class="div-blog-title">{{blog.dataValues.title}}</div>
+                </div>
+
+            </a>
+            {{/each}}
+        </div>
+        <div class="col-2">
+            <a href='/new' id="btn-create-blog">
+                <button class="btn btn-lg btn-create-blog">New Blog</button>
+            </a>
+        </div>
+
     </div>
-</a>
-{{/each}}
+
+
+
+</div>

@@ -72,4 +72,13 @@ a:hover {
     margin-bottom: 0;
 }
 
-
+.btn-create-blog {
+    color: white;
+    background-color: #060D0F;
+    width: 10rem;
+    height: 5rem;
+    font-weight: bold;
+}
+    .btn-create-blog:hover {
+        color: #DFBE57;
+    }

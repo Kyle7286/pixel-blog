@@ -52,16 +52,6 @@ router.get('/blog/:id', async (req, res) => {
 
         });
 
-        // const pewpew = await blogData[0].comments.map((element) => {
-        //     console.log("===============");
-        //     // console.log(element.dataValues.date_created);
-        //     const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
-        //     x = element.dataValues.date_created.toLocaleDateString('en-US', options);
-        //     console.log(x);
-        //     element.localTime = x;
-        //     return x;
-
-        // })
         const x = blogData[0].dataValues.comments.map((element) => {
             const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
             const localTime = element.dataValues.date_created.toLocaleDateString('en-US', options);
@@ -103,13 +93,29 @@ router.get('/dashboard', withAuth, async (req, res) => {
             order: [
                 // Will escape title and validate DESC against a list of valid direction parameters
                 ['id', 'DESC'],
-            ]
+            ],
+            include: [{
+                model: User
+            }]
         });
 
         console.log(dashboardData);
 
         res.render('dashboard', {
             dashboardData,
+            logged_in: req.session.logged_in
+        });
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
+
+// New Blog page | http://localhost:3001/nbew
+router.get('/new', withAuth, async (req, res) => {
+    console.log(chalk.magenta(`User ${req.session.user_id} visted http://localhost:3001/dashboard`));
+    try {
+        res.render('createblog', {
             logged_in: req.session.logged_in
         });
 
