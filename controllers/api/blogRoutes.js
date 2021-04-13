@@ -18,6 +18,30 @@ router.get('/', async (req, res) => {
     }
 });
 
+//  Check Route | http://localhost:3001/api/blogs | For confirming
+router.get('/check/:id', async (req, res) => {
+    try {
+        console.log(`ID: ${req.session.user_id}`);
+        // Query all information
+        const blogData = await Blog.findOne({
+            where: {
+                user_id: req.session.user_id,
+                id: req.params.id
+            }
+        })
+        console.log(blogData);
+        if (!blogData) {
+            res.status(404).json(blogData)
+        } else {
+            console.log(blogData);
+            // Send data in response as JSON
+            res.status(200).json(blogData);
+        }
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 //  Create Blog | http://localhost:3001/api/blogs
 router.post('/', async (req, res) => {
     try {

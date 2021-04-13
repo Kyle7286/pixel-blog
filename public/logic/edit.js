@@ -1,16 +1,32 @@
 
 // Show the edit elements, hide the others
-const blogClicked = (e) => {
+const blogClicked = async (e) => {
     e.preventDefault();
-    console.log("Clicked blog");
 
-    $('.div-blog-dashboard').off();
+    const id = $('.div-blog').attr('id');
 
-    // Show all elements with class edit
-    $('.edit').removeClass('hidden');
 
-    // Hide all elements with class blog
-    $('.blog').addClass('hidden');
+    // Check if the post clicked belongs to the user first
+    const response = await fetch('/api/blogs/check/' + id, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    });
+
+ 
+    // If data not found, do not allow user to edit post
+    if (response.ok) {
+        // Remove handlers
+        $('.div-blog-dashboard').off();
+
+        // Show all elements with class edit
+        $('.edit').removeClass('hidden');
+
+        // Hide all elements with class blog
+        $('.blog').addClass('hidden');
+    } else {
+        console.log("Cannot edit post due to no ownership.");
+    }
+
 }
 
 
