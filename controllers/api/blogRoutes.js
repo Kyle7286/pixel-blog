@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const { Blog, Comment } = require('../../models');
-// const withAuth = require('../../utils/auth');
 
-//  ../api/blogs
+//  Dashboard Page | http://localhost:3001/api/blogs
 router.get('/', async (req, res) => {
     try {
         // Query all information
@@ -19,7 +18,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-//  ../api/blogs
+//  Create Blog | http://localhost:3001/api/blogs
 router.post('/', async (req, res) => {
     try {
         const newBlog = await Blog.create({ title: req.body.headline, content: req.body.content, user_id: req.session.user_id });
@@ -32,7 +31,7 @@ router.post('/', async (req, res) => {
 });
 
 
-//  ../api/blogs
+// Update Blog | http://localhost:3001/api/blogs/id
 router.put('/:id', async (req, res) => {
     try {
         console.log(req.body);
@@ -49,7 +48,28 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-//  ../api/blogs/comment
+// Delete Blog | http://localhost:3001/api/blogs/id
+router.delete('/:id', async (req, res) => {
+    try {
+        const blogData = await Blog.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+
+        if (!blogData) {
+            res.status(404).json({ message: 'No Category with this id!' });
+            return;
+        }
+
+        res.status(200).json(blogData);
+    } catch (err) {
+        console.log(err);
+        res.status(400).json(err);
+    }
+});
+
+//  Create Comment/Reply | http://localhost:3001/api/blogs/reply
 router.post('/reply', async (req, res) => {
     try {
         const newComment = await Comment.create({ blog_id: req.body.blog_id, content: req.body.content, user_id: req.session.user_id });
