@@ -2,7 +2,7 @@
 // Show the edit elements, hide the others
 const blogClicked = (e) => {
     e.preventDefault();
-    console.log("Clicked");
+    console.log("Clicked blog");
 
     $('.div-blog-dashboard').off();
 

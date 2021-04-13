@@ -4,7 +4,6 @@ const replyClicked = (e) => {
     $('#div-reply').removeClass('hidden');
     $('#div-reply').addClass('visible');
     $('textarea').focus();
-
 }
 
 const postClicked = async (e) => {

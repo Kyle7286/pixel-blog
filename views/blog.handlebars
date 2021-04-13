@@ -3,12 +3,12 @@
         {{!-- <h1>Blog Handlebars Page</h1> --}}
     </div>
     <div class="row">
-        <div class="div-blog div-blog-dashboard" id={{blog.id}}>
+        <div class="div-blog" id={{blog.id}}>
             <div class="reply blog" id="btn-reply"><i class="fas fa-reply"></i></div>
-            <div class="div-blog-title blog">
+            <div class="div-blog-title blog div-blog-dashboard">
                 {{blog.title}}
             </div>
-            <div class="div-blog-content">
+            <div class="div-blog-content div-blog-dashboard">
                 <p class="blog">{{blog.content}}</p>
                 <footer class="blockquote-footer blog">{{blog.user.name}}, {{blog.date_created}}</footer>
             </div>
