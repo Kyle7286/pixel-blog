@@ -1,9 +1,10 @@
 <div class="container">
     <div class="row">
-        {{!-- <h1>Blog Handlebars Page</h1>  --}}
+        {{!-- <h1>Blog Handlebars Page</h1> --}}
     </div>
     <div class="row">
         <div class="div-blog" id={{blog.id}}>
+            <div class="reply" id="btn-reply"><i class="fas fa-reply"></i></div>
             <div class="div-blog-title">
                 {{blog.title}}
             </div>
@@ -13,14 +14,32 @@
             </div>
         </div>
 
+        {{!-- Reply Div --}}
+        <div class="card hidden" id="div-reply">
+            <div class="form">
+                <label for="exampleFormControlInput1" class="form-label" style="color: white;">Reply</label>
+                <div class="row">
+                    <div class="col-10">
+                        <textarea id="reply-content"class="m-3" type="text" style="width: 100%;"></textarea>
+                    </div>
+                    <div class="col p-3">
+                        <button id="btn-post" style="width: 6rem; height: 3rem; font-weight:bold;">Post</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{!-- All Replies div --}}
         {{#each blog.comments as |comment| }}
         <div class="card" id={{comment.id}}>
             <div class="card-body">
                 <p class="card-text">{{comment.content}}</p>
                 <footer class="blockquote-footer">{{comment.user.name}}, {{comment.localTime}}</footer>
-                
+
             </div>
         </div>
         {{/each}}
     </div>
 </div>
+
+<script src="/logic/reply.js" defer></script>

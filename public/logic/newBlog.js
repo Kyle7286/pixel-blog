@@ -35,18 +35,14 @@ const createBlogClicked = async (e) => {
             headers: { 'Content-Type': 'application/json' },
         });
         // If a response from server, then proceed to dashboard
-        if (response) {
+        if (response.ok) {
             window.location.replace("/dashboard")
         } else {
-            alert("No response from server, please try again...")
+            alert(response.statusText)
         }
-
-
     } else {
-        alert("Please ensure the headline and content are filled out to create a new blog!")
+        alert("Please ensure both the headline and content box are filled out and try again...")
     }
-
-
 }
 
 // Empty the forms to remove white space

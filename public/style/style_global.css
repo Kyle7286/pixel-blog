@@ -72,6 +72,7 @@ a:hover {
     margin-bottom: 0;
 }
 
+/* New Blog Button */
 .btn-create-blog {
     color: white;
     background-color: #060D0F;
@@ -82,3 +83,22 @@ a:hover {
     .btn-create-blog:hover {
         color: #DFBE57;
     }
+
+    .div-blog {
+        position: relative;
+    }
+.fa-reply {
+    color: white;
+    position: absolute;
+    right: 0px;
+}
+.fa-reply:hover {
+    color: #DFBE57;
+    font-size: larger;
+}
+
+.hidden {
+    display:none;
+
+}
+
