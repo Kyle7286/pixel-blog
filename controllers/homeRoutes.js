@@ -33,7 +33,7 @@ router.get('/', async (req, res) => {
 // Blog Post | http://localhost:3001/blog/:id
 router.get('/blog/:id', async (req, res) => {
     try {
-        // // Get all projects and JOIN with user data
+        // Get all projects and JOIN with user data
         const blogData = await Blog.findAll({
             where: {
                 id: req.params.id
@@ -49,22 +49,17 @@ router.get('/blog/:id', async (req, res) => {
 
                 }
             ],
-
         });
 
         const x = blogData[0].dataValues.comments.map((element) => {
             const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
             const localTime = element.dataValues.date_created.toLocaleDateString('en-US', options);
             element.dataValues.localTime = localTime;
-
-
         })
 
         // Serialize data so the template can read it
         const blog = blogData.map((blog) => blog.get({ plain: true }));
-
-        // console.log(blog[0]);
-
+        console.log(blog[0]);
         res.render('blog', {
             blog: blog[0],
             logged_in: req.session.logged_in

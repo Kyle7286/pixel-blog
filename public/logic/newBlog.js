@@ -23,8 +23,8 @@ const createBlogClicked = async (e) => {
     // Prevent refreshing of page
     e.preventDefault();
 
-    const headline = $('#blog-headline').val().trim();
-    const content = $('#blog-content').val().trim();
+    const headline = $.trim($('#blog-headline').val());
+    const content = $.trim($('#blog-content').val());
 
     // If forms have text, then post new blog
     if (headline && content) {
@@ -47,11 +47,12 @@ const createBlogClicked = async (e) => {
 
 // Empty the forms to remove white space
 const clearForms = () => {
-    $('#blog-headline').val("");
-    $('#blog-content').val("")
+    $('#blog-headline').text("");
+    $('#blog-content').text("")
 }
 
 clearForms();
+$('#form-headline').focus();
 
 // Click handler for Create Post!
 $('#btn-create-blog').click(createBlogClicked)

@@ -17,12 +17,12 @@ Blog.hasMany(Comment, {
 })
 // A blog belongs to a single user
 Blog.belongsTo(User, {
-    foreignKey: 'id',
+    foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
 // A comment belongs to a single user
 Comment.belongsTo(User, {
-    foreignKey: 'id'
+    foreignKey: 'user_id'
 })
 // A comment belongs to a single blog
 Comment.belongsTo(Blog, {

@@ -1,8 +1,10 @@
 // Reply button clicked shows the element
 const replyClicked = (e) => {
     e.preventDefault();
-    $('#div-reply').removeClass('hidden')
-    $('#div-reply').addClass('visible')
+    $('#div-reply').removeClass('hidden');
+    $('#div-reply').addClass('visible');
+    $('textarea').focus();
+
 }
 
 const postClicked = async (e) => {
@@ -25,6 +27,7 @@ const postClicked = async (e) => {
             console.log(response.ok);
             $('#div-reply').removeClass('visible')
             $('#div-reply').addClass('hidden')
+            location.reload();
         } else {
             alert(response.statusText)
         }
