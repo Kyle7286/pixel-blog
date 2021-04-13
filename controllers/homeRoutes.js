@@ -9,12 +9,15 @@ router.get('/', async (req, res) => {
     try {
         // // Get all projects and JOIN with user data
         const blogData = await Blog.findAll({
+            order: [
+                // Will escape title and validate DESC against a list of valid direction parameters
+                ['id', 'DESC'],
+            ],
             include: [
                 {
                     model: User,
                     attributes: ['name'],
                 },
-
             ],
         });
         // Serialize data so the template can read it

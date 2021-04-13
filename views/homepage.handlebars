@@ -1,5 +1,3 @@
- {{#if logged_in}}
-{{!-- Data is handed to this template via the homeroute --}}
 {{#each blogs as |blog| }}
 <a href="/blog/{{blog.id}}">
     <div class="div-blog" id={{blog.id}}>
@@ -13,6 +11,3 @@
     </div>
 </a>
 {{/each}}
-{{else}}
-<h1>Hello! Please login or signup to view all blogs :)</h1>
-{{/if}}

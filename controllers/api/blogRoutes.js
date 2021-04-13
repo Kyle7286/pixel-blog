@@ -31,6 +31,24 @@ router.post('/', async (req, res) => {
     }
 });
 
+
+//  ../api/blogs
+router.put('/:id', async (req, res) => {
+    try {
+        console.log(req.body);
+        const blogData = await Blog.update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        })
+
+        res.status(200).json(blogData)
+    } catch (err) {
+        console.log(err);
+        res.status(400).json(err);
+    }
+});
+
 //  ../api/blogs/comment
 router.post('/reply', async (req, res) => {
     try {

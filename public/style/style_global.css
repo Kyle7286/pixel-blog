@@ -74,8 +74,9 @@ a:hover {
     color: white;
     background-color: #060D0F;
     width: 10rem;
-    height: 5rem;
+    height: 3rem;
     font-weight: bold;
+    margin-top: 1rem;
 }
     .btn-create-blog:hover {
         color: #DFBE57;
@@ -93,9 +94,9 @@ a:hover {
     color: #DFBE57;
     font-size: larger;
 }
-
+/* Apply to elements to hide */
 .hidden {
     display:none;
-
 }
+
 

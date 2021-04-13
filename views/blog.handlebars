@@ -3,14 +3,24 @@
         {{!-- <h1>Blog Handlebars Page</h1> --}}
     </div>
     <div class="row">
-        <div class="div-blog" id={{blog.id}}>
-            <div class="reply" id="btn-reply"><i class="fas fa-reply"></i></div>
-            <div class="div-blog-title">
+        <div class="div-blog div-blog-dashboard" id={{blog.id}}>
+            <div class="reply blog" id="btn-reply"><i class="fas fa-reply"></i></div>
+            <div class="div-blog-title blog">
                 {{blog.title}}
             </div>
             <div class="div-blog-content">
-                <p>{{blog.content}}</p>
-                <footer class="blockquote-footer">{{blog.user.name}}, {{blog.date_created}}</footer>
+                <p class="blog">{{blog.content}}</p>
+                <footer class="blockquote-footer blog">{{blog.user.name}}, {{blog.date_created}}</footer>
+            </div>
+            <div class="edit hidden" >
+                <h3>Update Post</h3>
+                <textarea class="m-1" id="blog-headline" style="width: 95%;" type="text" id="blog-headline" rows="1">{{blog.title}}</textarea>
+                <textarea id="blog-content" class="form-input m-1" style="width: 95%;" type="text">{{blog.content}}</textarea>
+                <div class="d-flex">
+                    <button class="btn btn-update-post me-1" style="color: white; border:solid gold 1px;">Update Post</button>
+                    <button class="btn btn-delete-post" style="color: white; border:solid gold 1px;">Delete Post</button>
+                </div>
+
             </div>
         </div>
 
@@ -20,7 +30,7 @@
                 <label for="exampleFormControlInput1" class="form-label" style="color: white;">Reply</label>
                 <div class="row">
                     <div class="col-10">
-                        <textarea id="reply-content"class="m-3" type="text" style="width: 100%;"></textarea>
+                        <textarea id="reply-content" class="m-3" type="text" style="width: 100%;"></textarea>
                     </div>
                     <div class="col p-3">
                         <button id="btn-post" style="width: 6rem; height: 3rem; font-weight:bold;">Post</button>
@@ -43,3 +53,4 @@
 </div>
 
 <script src="/logic/reply.js" defer></script>
+<script src="/logic/edit.js" defer></script>
