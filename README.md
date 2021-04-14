@@ -38,8 +38,6 @@ Pixel Blog is a simple website which allows you to create, read and edit blog po
 ![Image](./assets/readme/ss3.png)
 ![Image](./assets/readme/ss4.png)
 
-
-
 ## Thank you 👍 
 ---
-Thank you for your time checking out our website! It means a lot to us :)
+Thank you for your time checking out our website! It means a lot  :)
