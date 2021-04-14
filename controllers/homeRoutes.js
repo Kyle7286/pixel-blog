@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
 
 
 // Blog Post | http://localhost:3001/blog/:id
-router.get('/blog/:id', async (req, res) => {
+router.get('/blog/:id', withAuth, async (req, res) => {
     try {
         // Get all projects and JOIN with user data
         const blogData = await Blog.findAll({
@@ -68,11 +68,6 @@ router.get('/blog/:id', async (req, res) => {
             logged_in: req.session.logged_in
         });
     } catch (err) {
-        console.log(` 
-        =================
-        ${err}
-        =================
-        `);
         res.status(500).json(err);
     }
 });
