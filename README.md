@@ -3,7 +3,8 @@
 ## General 📖
 ---    
 - Github:    https://github.com/Kyle7286/pixel-blog
-- Deployed Site: 
+- Deployed Site: https://pacific-escarpment-52809.herokuapp.com/
+- Video: https://drive.google.com/file/d/1XIB2_lGKQNMoO6E388CSg-IxlrlP1Hsu/view
 
 ## About/Purpose ❔
 ---
